@@ -74,10 +74,9 @@ if (navigator.mediaDevices.getUserMedia) {
       clipLabel.onclick = function() {
         const existingName = clipLabel.textContent;
         const newClipName = prompt('Enter a new name for your sound clip?', existingName);
-        if(newClipName === null) {
-          clipLabel.textContent = existingName;
-        } else {
+        if(newClipName !== null) {
           clipLabel.textContent = newClipName;
+          clipLabel.parentNode.getElementsByTagName('a')[0].download = newClipName + ".ogg";
         }
       }
     }
